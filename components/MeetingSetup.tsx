@@ -4,6 +4,7 @@ import React , {useState,useEffect} from 'react'
 import { Button } from './ui/button'
 
 
+
 const MeetingSetup = ({setISetupComplete}:{setISetupComplete:(value:boolean)=>void}) => {
   const [isMicCamToggledOn, setisMicCamToggledOn] =useState (true)
   const call=useCall()
@@ -25,10 +26,11 @@ const MeetingSetup = ({setISetupComplete}:{setISetupComplete:(value:boolean)=>vo
       <VideoPreview/>
       {/* toggle mic and camera  */}
       <div className='flex h-16 items-center justify-center gap-3'>
-    <label className='flex items-center justify-center gap-2 font-medium'>
-    <input type='checkbox' checked={isMicCamToggledOn} onChange={(e)=>setisMicCamToggledOn(e.target.checked)}/>
-    join with mic and camera off
-    </label>
+<label className="container flex items-center justify-center gap-2 font-medium">
+  <input  type="checkbox" checked={isMicCamToggledOn} onChange={(e)=>setisMicCamToggledOn(e.target.checked)}/>
+  <div className="checkmark" />
+  <div >join with mic and camera off</div>
+</label>
     <DeviceSettings/>
       </div>
       <Button className='rounded-md bg-green-500 hover:bg-green-500 px-4 py-2.5' onClick={()=>{
@@ -41,5 +43,4 @@ const MeetingSetup = ({setISetupComplete}:{setISetupComplete:(value:boolean)=>vo
       
   )
 }
-
 export default MeetingSetup
